@@ -1,4 +1,4 @@
-package com.crud.tasks;
+package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.TaskDto;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +11,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/task")
 public class TaskController {
+
+    @RequestMapping(method = RequestMethod.GET, value = "getTasks")
     public List<TaskDto> getTasks() {
         return new ArrayList<>();
     }
