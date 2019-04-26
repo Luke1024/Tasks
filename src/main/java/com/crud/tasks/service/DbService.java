@@ -34,5 +34,4 @@ public class DbService {
     public Optional<Task> deleteTask(final Long id) {
         return repository.deleteById(id);
     }
-
 }
