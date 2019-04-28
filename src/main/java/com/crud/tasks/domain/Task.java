@@ -18,16 +18,6 @@ public class Task {
     @Column(name = "name")
     private String title;
 
-
-
-
-
-
-
-
-
-
-
     @Column(name = "description")
     private String content;
 }
