@@ -23,4 +23,7 @@ public class Task {
 
     @Transient
     private String differentTest;
+
+    @Transient
+    private String test;
 }
