@@ -2,6 +2,7 @@ package com.crud.tasks.repository;
 
 import com.crud.tasks.domain.Task;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
 
     Optional<Task> deleteById(Long id);
 
+    @Override
+    long count();
 }
