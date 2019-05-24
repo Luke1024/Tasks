@@ -34,9 +34,9 @@ public class EmailScheduler {
         );
     }
 
-    private String messageContent(long size) {
-        if (size == 0) return MESSAGE_BEGINNING + "no tasks";
-        else if (size == 1) return MESSAGE_BEGINNING + size + " task";
-        else return MESSAGE_BEGINNING + size + " tasks";
+    protected String messageContent(long size) {
+        return size==0 ? MESSAGE_BEGINNING + "no tasks" :
+                size==1 ? MESSAGE_BEGINNING + size + " task" :
+                        MESSAGE_BEGINNING + size + " tasks";
     }
 }
