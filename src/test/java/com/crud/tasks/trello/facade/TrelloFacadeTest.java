@@ -6,6 +6,7 @@ import com.crud.tasks.service.TrelloService;
 import com.crud.tasks.trello.validator.TrelloValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -17,6 +18,8 @@ import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertEquals;
+import static com.shazam.shazamcrest.MatcherAssert.assertThat;
+import static com.shazam.shazamcrest.matcher.Matchers.sameBeanAs;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TrelloFacadeTest {
@@ -68,7 +71,7 @@ public class TrelloFacadeTest {
         trelloLists.add(new TrelloListDto("1", "my_list", false));
 
         List<TrelloBoardDto> trelloBoards = new ArrayList<>();
-        trelloBoards.add(new TrelloBoardDto("my_task", "1",trelloLists));
+        trelloBoards.add(new TrelloBoardDto("1", "my_task",trelloLists));
 
         List<TrelloList> mappedTrelloLists = new ArrayList<>();
         mappedTrelloLists.add(new TrelloList("1", "my_list", false));
@@ -98,5 +101,22 @@ public class TrelloFacadeTest {
                 assertEquals(false, trelloListDto.isClosed());
             });
         });
+    }
+
+    @Test
+    public void shouldCreateCard(){
+        //Given
+        TrelloCardDto trelloCardDto = new TrelloCardDto("card","test card","pos", "1");
+
+        TrelloCard trelloCard = new TrelloCard("card","test card","pos", "1");
+
+        CreatedTrelloCardDto createdTrelloCardDto = new CreatedTrelloCardDto("1", "test card", "test url");
+
+        when(trelloMapper.mapToCard(trelloCardDto)).thenReturn(trelloCard);
+        when(trelloMapper.mapToCardDto(trelloCard)).thenReturn(trelloCardDto);
+        when(trelloService.createdTrelloCard(trelloCardDto)).thenReturn(createdTrelloCardDto);
+
+        //When & Then
+        assertThat(createdTrelloCardDto, sameBeanAs(trelloFacade.createCard(trelloCardDto)));
     }
 }

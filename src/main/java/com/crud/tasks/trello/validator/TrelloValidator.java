@@ -1,6 +1,5 @@
 package com.crud.tasks.trello.validator;
 
-import com.crud.tasks.domain.Trello;
 import com.crud.tasks.domain.TrelloBoard;
 import com.crud.tasks.domain.TrelloCard;
 import org.slf4j.Logger;
