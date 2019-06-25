@@ -31,6 +31,7 @@ public class DbServiceTest {
         dbService.deleteTask(task.getId());
     }
 
+    /*
     @Test
     public void findTaskByIdTest() {
         dbService.saveTask(task);
@@ -56,4 +57,5 @@ public class DbServiceTest {
         readTask = dbService.findTaskById(taskId);
         Assert.assertFalse(readTask.isPresent());
     }
+    */
 }

@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity(name = "tasks")
 public class Task {
     @Id
+    @GeneratedValue
     private Long id;
 
     @Column(name = "name")

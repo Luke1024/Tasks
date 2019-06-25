@@ -37,7 +37,9 @@ dependencies {
 
 	compile('com.google.code.gson:gson:2.8.2')
 
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '2.28.2'
 	testCompile group: 'com.shazam', name: 'shazamcrest', version: '0.11'
 	//providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
