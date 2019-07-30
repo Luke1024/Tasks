@@ -1,19 +1,9 @@
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.19.RELEASE'
-	}
-}
-
 plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
 }
 
-apply plugin: 'org.springframework.boot'
-//apply plugin: 'war'
-
+apply plugin: 'io.spring.dependency-management'
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -25,6 +15,7 @@ repositories {
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile group: 'org.projectlombok', name: 'lombok'
+	annotationProcessor group: 'org.projectlombok', name: 'lombok'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
 	compile('mysql:mysql-connector-java')
 	//compile('org.postgresql:postgresql')

@@ -31,7 +31,7 @@ public class DbService {
     }
 
     @Transactional
-    public Optional<Task> deleteTask(final Long id) {
-        return repository.deleteById(id);
+    public void deleteTask(final Long id) {
+        repository.deleteById(id);
     }
 }
