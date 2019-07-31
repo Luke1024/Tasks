@@ -1,6 +1,7 @@
 package com.crud.tasks.scheduler;
 
 import com.crud.tasks.config.AdminConfig;
+import com.crud.tasks.domain.EmailType;
 import com.crud.tasks.domain.Mail;
 import com.crud.tasks.repository.TaskRepository;
 import com.crud.tasks.service.SimpleEmailService;
@@ -23,10 +24,10 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(fixedDelay = 100000)//cron = "0 0 10 * * *")
     public void sendInformationEmail() {
         long size = taskRepository.count();
-        simpleEmailService.send(new Mail(
+        simpleEmailService.send(EmailType.SCHEDULED_TRELLO_MAIL ,new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
                 messageContent(size),
