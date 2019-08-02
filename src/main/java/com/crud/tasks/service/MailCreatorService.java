@@ -9,7 +9,6 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -61,6 +60,6 @@ public class MailCreatorService {
         context.setVariable("is_friend", true);
         context.setVariable("admin_config", adminConfig);
         context.setVariable("show_functionality", false);
-        return templateEngine.process("mail/created-trello-card-mail", context);
+        return templateEngine.process("mail/scheduled-trello-mail", context);
     }
 }

@@ -1,5 +1,6 @@
 package com.crud.tasks.service;
 
+import com.crud.tasks.domain.EmailType;
 import com.crud.tasks.domain.Mail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +12,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-/*
+
 @RunWith(MockitoJUnitRunner.class)
 public class SimpleEmailServiceTest {
 
@@ -31,10 +32,11 @@ public class SimpleEmailServiceTest {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
 
+
         //When
-        simpleEmailService.send(mail);
+        simpleEmailService.send(EmailType.TRELLO_CARD_CREATION_MAIL, mail);
 
         //Then
         verify(javaMailSender, times(1)).send(mailMessage);
     }
-    */
+}
