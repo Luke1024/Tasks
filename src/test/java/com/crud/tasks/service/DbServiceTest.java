@@ -22,7 +22,7 @@ public class DbServiceTest {
 
     @Test
     public void getAllTasksTest() {
-        Task task = new Task(1L,"Task", "Content");
+        Task task = new Task("Task", "Content");
         int allTasksCount = dbService.getAllTasks().size();
         dbService.saveTask(task);
         int tasksCountAfter = dbService.getAllTasks().size();
@@ -34,7 +34,7 @@ public class DbServiceTest {
 
     @Test
     public void findTaskByIdTest() {
-        Task task = new Task(1L,"Task", "Content");
+        Task task = new Task("Task", "Content");
         dbService.saveTask(task);
         assertThat(task, sameBeanAs(dbService.findTaskById(task.getId()).get()));
         dbService.deleteTask(task.getId());
@@ -42,7 +42,7 @@ public class DbServiceTest {
 
     @Test
     public void saveTaskTest() {
-        Task task = new Task(1L,"Task", "Content");
+        Task task = new Task("Task", "Content");
         dbService.saveTask(task);
         Optional<Task> readTask = dbService.findTaskById(task.getId());
         Assert.assertTrue(dbService.getTask(task.getId()).isPresent());
@@ -51,7 +51,7 @@ public class DbServiceTest {
 
     @Test
     public void deleteTaskTest() {
-        Task task = new Task(1L,"Task", "Content");
+        Task task = new Task("Task", "Content");
         dbService.saveTask(task);
         Long taskId = task.getId();
         Optional<Task> readTask = dbService.findTaskById(taskId);
