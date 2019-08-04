@@ -88,9 +88,6 @@ public class TrelloClientTest {
 
     @Test
     public void shouldReturnEmptyList() throws URISyntaxException {
-        // Given
-        //UnnecessaryStubbingException
-        //when(restTemplate.getForObject("", TrelloBoardDto[].class)).thenReturn(null);
 
         // When
         List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
